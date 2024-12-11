@@ -58,7 +58,7 @@
     },
     "inbounds": [
         {
-
+            "type":"tun",
        
             "domain_strategy": "prefer_ipv4",
             "endpoint_independent_nat": true,
