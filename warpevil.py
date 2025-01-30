@@ -762,7 +762,7 @@ def toxray11(clean_ip):
     WoW_v2=WoW_v2
 
 def export_SingBox(t_ips, arch):
-    with open('edge/sing-box.json', 'r') as f:
+    with open('edge/assets/sing-box.json', 'r') as f:
         data = json.load(f)
 
     warp_go_url = f"https://gitlab.com/Misaka-blog/warp-script/-/raw/main/files/warp-go/warp-go-latest-linux-{arch}"
