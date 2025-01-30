@@ -25,7 +25,7 @@ jobs:
         pip install ipaddress
         pip install cryptography 
         pip install requests
-   
+
     - name: Run script
       run: python warpevil.py
     - name: Commit and push changes
