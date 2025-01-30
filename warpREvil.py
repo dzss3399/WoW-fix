@@ -762,7 +762,7 @@ def toxray11(clean_ip):
     WoW_v2=WoW_v2
 
 def export_SingBox(t_ips, arch):
-    with open('edge/assets/singbox-template.json', 'r') as f:
+    with open('assets/singbox-template.json', 'r') as f:
         data = json.load(f)
 
     warp_go_url = f"https://gitlab.com/Misaka-blog/warp-script/-/raw/main/files/warp-go/warp-go-latest-linux-{arch}"
@@ -775,11 +775,11 @@ def export_SingBox(t_ips, arch):
     data["outbounds"].insert(2, wow_wg)
 
     with open('sing-box.json', 'w') as f:
-        f.write(json.dumps(data, indent=4))
+        f.write(json.dumps(data, indent=2))
 
 def export_Xray(t_ips, arch):
     global WoW_v2
-    with open('edge/assets/singbox-template.json', 'r') as f:
+    with open('assets/singbox-template.json', 'r') as f:
         data = json.load(f)
 
     warp_go_url = f"https://gitlab.com/Misaka-blog/warp-script/-/raw/main/files/warp-go/warp-go-latest-linux-{arch}"
@@ -793,10 +793,10 @@ def export_Xray(t_ips, arch):
     
     data=WoW_v2
     with open('Xray-WoW.json', 'w') as f:
-        f.write(json.dumps(data, indent=4))
+        f.write(json.dumps(data, indent=2))
     os.remove("warp-go")
 def export_SingBox2(t_ips, arch):
-    with open('edge/assets/singbox-template.json', 'r') as f:
+    with open('assets/singbox-template.json', 'r') as f:
         data = json.load(f)
 
     warp_go_url = f"https://gitlab.com/Misaka-blog/warp-script/-/raw/main/files/warp-go/warp-go-latest-linux-{arch}"
@@ -809,7 +809,7 @@ def export_SingBox2(t_ips, arch):
     data["outbounds"].insert(4, wow_wg)  
 
     with open('sing-box-hiddify.json', 'w') as f:
-        f.write(json.dumps(data, indent=4))
+        f.write(json.dumps(data, indent=2))
 
 
     os.remove("warp-go")
