@@ -74,8 +74,8 @@
     {
       "tag": "proxy",
       "type": "selector",
-      "outbounds": ["⚪️Tehran", "🟡Berlin"],
-      "default": "🟡Berlin",
+      "outbounds": ["WARP-MAIN", "WARP-WOW"],
+      "default": "WARP-WOW",
       "interrupt_exist_connections": false
     },
     {
