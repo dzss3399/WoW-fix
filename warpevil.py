@@ -768,7 +768,6 @@ def export_SingBox(t_ips, arch):
     warp_go_url = f"https://gitlab.com/Misaka-blog/warp-script/-/raw/main/files/warp-go/warp-go-latest-linux-{arch}"
     subprocess.run(["wget", warp_go_url, "-O", "warp-go"])
     os.chmod("warp-go", 0o755)
-    print(data["outbounds"][1])
     data["outbounds"][1]["outbounds"].extend(['WARP-MAIN', 'WARP-WOW'])
     main_wg = toSingBox1('WARP-MAIN', t_ips[0], "direct")
     data["outbounds"].insert(1, main_wg)
