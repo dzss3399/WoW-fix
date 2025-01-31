@@ -41,7 +41,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip || exit 1
-          pip install -r edge/requirements.txt || exit 1
+          pip install -r assets/requirements.txt || exit 1
 
       - name: Run script
         run: python warp2.py
