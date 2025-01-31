@@ -26,15 +26,15 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          submodules: 'recursive'
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          submodules: 'recursive' 
+          token: ${{ secrets.GITHUB_TOKEN }}
         env:
           NODE_VERSION: '20'
 
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.4'
+          php-version: '8.2'
 
       - name: Execute PHP script
         run: php warpauto.php || exit 1
@@ -47,9 +47,9 @@ jobs:
       - name: Commit changes with timestamp
         run: |
           git add -A
-          git diff --cached --quiet || git commit -m "🤖Auto update💀 - $(TZ='Asia/Tehran' date '+%Y-%m-%d %H:%M')"
+          git diff --cached --quiet || git commit -m "🤖Auto update - $(TZ='Asia/Tehran' date '+%Y-%m-%d %H:%M')"
 
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
