@@ -618,9 +618,7 @@ def export_SingBox(t_ips, arch):
     with open("assets/singbox-template.json", "r") as f:
         data = json.load(f)
 
-    warp_go_url = f"https://gitlab.com/Misaka-blog/warp-script/-/raw/main/files/warp-go/warp-go-latest-linux-{arch}"
-    subprocess.run(["wget", warp_go_url, "-O", "warp-go"])
-    os.chmod("warp-go", 0o755)
+
     data["outbounds"][1]["outbounds"].extend(["WARP-MAIN", "WARP-WOW"])
     main_wg = toSingBox1("WARP-MAIN", t_ips[0], "direct")
     data["outbounds"].insert(1, main_wg)
@@ -636,10 +634,6 @@ def export_Xray(t_ips, arch):
     with open("assets/singbox-template.json", "r") as f:
         data = json.load(f)
 
-    warp_go_url = f"https://gitlab.com/Misaka-blog/warp-script/-/raw/main/files/warp-go/warp-go-latest-linux-{arch}"
-    subprocess.run(["wget", warp_go_url, "-O", "warp-go"])
-    os.chmod("warp-go", 0o755)
-
     toxray1(t_ips[0])
 
     toxray11(t_ips[1])
@@ -647,16 +641,12 @@ def export_Xray(t_ips, arch):
     data = WoW_v2
     with open("Xray-WoW.json", "w") as f:
         f.write(json.dumps(data, indent=2))
-    os.remove("warp-go")
 
 
 def export_SingBox2(t_ips, arch):
     with open("assets/singbox-template.json", "r") as f:
         data = json.load(f)
 
-    warp_go_url = f"https://gitlab.com/Misaka-blog/warp-script/-/raw/main/files/warp-go/warp-go-latest-linux-{arch}"
-    subprocess.run(["wget", warp_go_url, "-O", "warp-go"])
-    os.chmod("warp-go", 0o755)
 
     main_wg = toSingBox2("WARP-MAIN", t_ips[0], "direct")
     data["outbounds"].insert(3, main_wg)
@@ -666,7 +656,7 @@ def export_SingBox2(t_ips, arch):
     with open("sing-box-hiddify.json", "w") as f:
         f.write(json.dumps(data, indent=2))
 
-    os.remove("warp-go")
+
 
 
 def main(script_dir):
