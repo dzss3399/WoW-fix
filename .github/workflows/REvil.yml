@@ -7,7 +7,7 @@ on:
       - 'warpREvil.py'
       - '**/*.json'
   schedule:
-    - cron: '0 */12 * * *'
+    - cron: '0 */8 * * *'
   workflow_dispatch:
 
 jobs:
@@ -63,5 +63,3 @@ jobs:
           else
             echo "No changes detected. Skipping commit and push."
           fi
-          
-          
