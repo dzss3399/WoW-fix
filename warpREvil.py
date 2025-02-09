@@ -48,40 +48,46 @@ temp2hi = {
 }
 
 temp = {
-    "outbounds": [
-        {
-            "type": "wireguard",
-            "server": "",
-            "server_port": 0,
-            "local_address": ["172.16.0.2/32", ""],
-            "private_key": "",
-            "peer_public_key": "",
-            "reserved": [],
-            "mtu": 1330,
-            "workers": 2,
-            "detour": "",
-            "tag": "",
-        }
-    ]
-}
-temp2 = {
-    "outbounds": [
-        {
-            "type": "wireguard",
-            "server": "",
-            "server_port": 0,
-            "local_address": ["172.16.0.2/32", ""],
-            "private_key": "",
-            "peer_public_key": "",
-            "reserved": [],
-            "mtu": 1330,
-            "workers": 2,
-            "detour": "",
-            "tag": "",
-        }
-    ]
+                "type": "wireguard",
+                "tag": "",
+                "name": "",
+                "mtu": 1280,
+                "address": ["172.16.0.2/32", ""],
+                "private_key": "",
+                "peers": [
+                    {
+                        "address": "",
+                        "port": 0,
+                        "public_key": "",
+                        "allowed_ips": ["0.0.0.0/0", "::/0"],
+                        "persistent_keepalive_interval": 30,
+                        "reserved": [],
+                    }
+                ],
+                "detour": "",
+                "workers": 2,
 }
 
+temp2 = {
+                "type": "wireguard",
+                "tag": "",
+                "name": "",
+                "mtu": 1280,
+                "address": ["172.16.0.2/32", ""],
+                "private_key": "",
+                "peers": [
+                    {
+                        "address": "",
+                        "port": 0,
+                        "public_key": "",
+                        "allowed_ips": ["0.0.0.0/0", "::/0"],
+                        "persistent_keepalive_interval": 30,
+                        "reserved": [],
+                    }
+                ],
+                "detour": "",
+                "workers": 2,
+}
 
 WoW_v2 = [
     {
@@ -541,12 +547,12 @@ def toSingBox2(tag, clean_ip, detour):
     data = bind_keys()
     wg = temphi["outbounds"][0]
     wg["private_key"] = data[1]
-    wg["peer_public_key"] = data[3]
-    wg["reserved"] = data[2]
+    wg["peers"][0]["public_key"] = data[3]
+    wg["peers"][0]["reserved"] = data[2]
     wg["local_address"][1] = data[0]
-    wg["server"] = clean_ip.split(":")[0]
-    wg["server_port"] = int(clean_ip.split(":")[1])
-    wg["mtu"] = 1300
+    wg["peers"][0]["address"] = clean_ip.split(":")[0]
+    wg["peers"][0][["port"] = int(clean_ip.split(":")[1])
+    wg["mtu"] = 1280
     wg["workers"] = 2
     wg["detour"] = detour
     wg["tag"] = tag
@@ -557,14 +563,14 @@ def toSingBox22(tag, clean_ip, detour):
     print("Generating Warp Conf")
 
     data = bind_keys()
-    wg = temp2hi["outbounds"][0]
+    wg = temphi["outbounds"][0]
     wg["private_key"] = data[1]
-    wg["peer_public_key"] = data[3]
-    wg["reserved"] = data[2]
+    wg["peers"][0]["public_key"] = data[3]
+    wg["peers"][0]["reserved"] = data[2]
     wg["local_address"][1] = data[0]
-    wg["server"] = clean_ip.split(":")[0]
-    wg["server_port"] = int(clean_ip.split(":")[1])
-    wg["mtu"] = 1300
+    wg["peers"][0]["address"] = clean_ip.split(":")[0]
+    wg["peers"][0][["port"] = int(clean_ip.split(":")[1])
+    wg["mtu"] = 1280
     wg["workers"] = 2
     wg["detour"] = detour
     wg["tag"] = tag
@@ -617,8 +623,22 @@ def toxray11(clean_ip):
 def export_SingBox(t_ips, arch):
     with open("assets/singbox-template.json", "r") as f:
         data = json.load(f)
+########################
+    data["outbounds"][0]["outbounds"].extend(["WARP-MAIN", "WARP-WOW"])
+    data["outbounds"][1]["outbounds"].extend(["WARP-MAIN", "WARP-WOW"])
 
+    main_wg = toSingBox("WARP-MAIN", t_ips[0], "direct")
+    if main_wg:
+        data["endpoints"].append(main_wg)
+    else:
+        print(f"Failed to generate WARP-MAIN configuration")
 
+    wow_wg = toSingBox("WARP-WOW", t_ips[1], "WARP-MAIN")
+    if wow_wg:
+        data["endpoints"].append(wow_wg)
+    else:
+        print(f"Failed to generate WARP-MAIN configuration")
+#########################
     data["outbounds"][1]["outbounds"].extend(["WARP-MAIN", "WARP-WOW"])
     main_wg = toSingBox1("WARP-MAIN", t_ips[0], "direct")
     data["outbounds"].insert(1, main_wg)
