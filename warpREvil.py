@@ -46,7 +46,8 @@ temp2hi = {
     ]
 }
 
-temp ="outbounds": {
+temp ={
+"outbounds":[ {
                 "type": "wireguard",
                 "tag": "",
                 "name": "",
@@ -65,9 +66,10 @@ temp ="outbounds": {
                 ],
                 "detour": "",
                 "workers": 2,
+}]
 }
 
-temp2 ="outbounds": {
+temp2 ={"outbounds": [{
                 "type": "wireguard",
                 "tag": "",
                 "name": "",
@@ -86,6 +88,7 @@ temp2 ="outbounds": {
                 ],
                 "detour": "",
                 "workers": 2,
+}]
 }
 
 WoW_v2 = [
