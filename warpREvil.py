@@ -626,13 +626,13 @@ def export_SingBox(t_ips, arch):
     data["outbounds"][0]["outbounds"].extend(["WARP-MAIN", "WARP-WOW"])
     data["outbounds"][1]["outbounds"].extend(["WARP-MAIN", "WARP-WOW"])
 
-    main_wg = toSingBox("WARP-MAIN", t_ips[0], "direct")
+    main_wg = toSingBox2("WARP-MAIN", t_ips[0], "direct")
     if main_wg:
         data["endpoints"].append(main_wg)
     else:
         print(f"Failed to generate WARP-MAIN configuration")
 
-    wow_wg = toSingBox("WARP-WOW", t_ips[1], "WARP-MAIN")
+    wow_wg = toSingBox22("WARP-WOW", t_ips[1], "WARP-MAIN")
     if wow_wg:
         data["endpoints"].append(wow_wg)
     else:
