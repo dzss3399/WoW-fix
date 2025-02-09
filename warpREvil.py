@@ -638,11 +638,11 @@ def export_SingBox(t_ips, arch):
     else:
         print(f"Failed to generate WARP-MAIN configuration")
 #########################
-    data["outbounds"][1]["outbounds"].extend(["WARP-MAIN", "WARP-WOW"])
-    main_wg = toSingBox1("WARP-MAIN", t_ips[0], "direct")
-    data["outbounds"].insert(1, main_wg)
-    wow_wg = toSingBox11("WARP-WOW", t_ips[1], "WARP-MAIN")
-    data["outbounds"].insert(2, wow_wg)
+    # data["outbounds"][1]["outbounds"].extend(["WARP-MAIN", "WARP-WOW"])
+    # main_wg = toSingBox1("WARP-MAIN", t_ips[0], "direct")
+    # data["outbounds"].insert(1, main_wg)
+    # wow_wg = toSingBox11("WARP-WOW", t_ips[1], "WARP-MAIN")
+    # data["outbounds"].insert(2, wow_wg)
 
     with open("sing-box.json", "w") as f:
         f.write(json.dumps(data, indent=2))
