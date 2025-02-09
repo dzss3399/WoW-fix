@@ -508,7 +508,7 @@ def toSingBox1(tag, clean_ip, detour):
     print("Generating Warp Conf")
 
     data = bind_keys()
-    wg = temp["outbounds"][0]
+
     wg["private_key"] = data[1]
     wg["peers"][0]["public_key"] = data[3]
     wg["peers"][0]["reserved"] = data[2]
@@ -526,7 +526,6 @@ def toSingBox11(tag, clean_ip, detour):
     print("Generating Warp Conf")
 
     data = bind_keys()
-    wg = temp2["outbounds"][0]
     wg["private_key"] = data[1]
     wg["peers"][0]["public_key"] = data[3]
     wg["peers"][0]["reserved"] = data[2]
