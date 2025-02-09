@@ -515,7 +515,7 @@ def toSingBox1(tag, clean_ip, detour):
     wg["private_key"] = data[1]
     wg["peers"][0]["public_key"] = data[3]
     wg["peers"][0]["reserved"] = data[2]
-    wg["local_address"][1] = data[0]
+    wg["address"][1] = data[0]
     wg["peers"][0]["address"] = clean_ip.split(":")[0]
     wg["peers"][0]["port"] = int(clean_ip.split(":")[1])
     wg["mtu"] = 1280
@@ -533,7 +533,7 @@ def toSingBox11(tag, clean_ip, detour):
     wg["private_key"] = data[1]
     wg["peers"][0]["public_key"] = data[3]
     wg["peers"][0]["reserved"] = data[2]
-    wg["local_address"][1] = data[0]
+    wg["address"][1] = data[0]
     wg["peers"][0]["address"] = clean_ip.split(":")[0]
     wg["peers"][0]["port"] = int(clean_ip.split(":")[1])
     wg["mtu"] = 1280
