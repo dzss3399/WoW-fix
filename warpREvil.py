@@ -486,7 +486,7 @@ def export_Hiddify(t_ips, f_ips):
         )
 
 
-def toSingBox1(tag, clean_ip, detour):
+def toSingBox1(tag, clean_ip, detour,temp):
     print("Generating Warp Conf")
 
     data = bind_keys()
@@ -502,32 +502,12 @@ def toSingBox1(tag, clean_ip, detour):
     wg["detour"] = detour
     wg["tag"] = tag
     return wg
-
-
-def toSingBox11(tag, clean_ip, detour):
+def toSingBox2(tag, clean_ip, detour,temp):
     print("Generating Warp Conf")
 
     data = bind_keys()
     wg = temp["outbounds"][0]
     wg["private_key"] = data[1]
-    wg["peers"][0]["public_key"] = data[3]
-    wg["peers"][0]["reserved"] = data[2]
-    wg["address"][1] = data[0]
-    wg["peers"][0]["address"] = clean_ip.split(":")[0]
-    wg["peers"][0]["port"] = int(clean_ip.split(":")[1])
-    wg["mtu"] = 1280
-    wg["workers"] = 2
-    wg["detour"] = detour
-    wg["tag"] = tag
-    return wg
-
-
-def toSingBox2(tag, clean_ip, detour):
-    print("Generating Warp Conf")
-
-    data = bind_keys()
-    wg = temphi["outbounds"][0]
-    wg["private_key"] = data[1]
     wg["peer_public_key"] = data[3]
     wg["reserved"] = data[2]
     wg["local_address"][1] = data[0]
@@ -538,26 +518,6 @@ def toSingBox2(tag, clean_ip, detour):
     wg["detour"] = detour
     wg["tag"] = tag
     return wg
-
-
-def toSingBox22(tag, clean_ip, detour):
-    print("Generating Warp Conf")
-
-    data = bind_keys()
-    wg = temp2hi["outbounds"][0]
-    wg["private_key"] = data[1]
-    wg["peer_public_key"] = data[3]
-    wg["reserved"] = data[2]
-    wg["local_address"][1] = data[0]
-    wg["server"] = clean_ip.split(":")[0]
-    wg["server_port"] = int(clean_ip.split(":")[1])
-    wg["mtu"] = 1300
-    wg["workers"] = 2
-    wg["detour"] = detour
-    wg["tag"] = tag
-    return wg
-
-
 def toxray1(clean_ip):
     global WoW_v2
     print("Generating Warp Conf")
@@ -608,13 +568,13 @@ def export_SingBox(t_ips, arch):
     data["outbounds"][0]["outbounds"].extend(["WARP-MAIN", "WARP-WOW"])
     data["outbounds"][1]["outbounds"].extend(["WARP-MAIN", "WARP-WOW"])
 
-    main_wg = toSingBox1("WARP-MAIN", t_ips[0], "direct")
+    main_wg = toSingBox1("WARP-MAIN", t_ips[0], "direct",temp)
     if main_wg:
         data["endpoints"].append(main_wg)
     else:
         print(f"Failed to generate WARP-MAIN configuration")
 
-    wow_wg = toSingBox11("WARP-WOW", t_ips[1], "WARP-MAIN")
+    wow_wg = toSingBox1("WARP-WOW", t_ips[1], "WARP-MAIN",temp2)
     if wow_wg:
         data["endpoints"].append(wow_wg)
     else:
@@ -644,9 +604,9 @@ def export_Xray(t_ips, arch):
 def export_SingBox2(t_ips, arch):
     with open("assets/hiddify-singbox.json", "r") as f:
         data = json.load(f)
-    main_wg = toSingBox2("WARP-MAIN", t_ips[0], "direct")
+    main_wg = toSingBox2("WARP-MAIN", t_ips[0], "direct",temphi)
     data["outbounds"].insert(3, main_wg)
-    wow_wg = toSingBox22("WARP-WOW", t_ips[1], "WARP-MAIN")
+    wow_wg = toSingBox2("WARP-WOW", t_ips[1], "WARP-MAIN",temp2hi)
     data["outbounds"].insert(4, wow_wg)
     with open("sing-box-hiddify.json", "w") as f:
         f.write(json.dumps(data, indent=2))
