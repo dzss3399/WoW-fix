@@ -655,9 +655,6 @@ def export_SingBox(t_ips, arch):
 
 def export_Xray(t_ips, arch):
     global WoW_v2
-    with open("assets/singbox-template.json", "r") as f:
-        data = json.load(f)
-
     toxray1(t_ips[0])
 
     toxray11(t_ips[1])
@@ -670,19 +667,12 @@ def export_Xray(t_ips, arch):
 def export_SingBox2(t_ips, arch):
     with open("assets/hiddify-singbox.json", "r") as f:
         data = json.load(f)
-
-
     main_wg = toSingBox2("WARP-MAIN", t_ips[0], "direct")
     data["outbounds"].insert(3, main_wg)
     wow_wg = toSingBox22("WARP-WOW", t_ips[1], "WARP-MAIN")
     data["outbounds"].insert(4, wow_wg)
-
     with open("sing-box-hiddify.json", "w") as f:
         f.write(json.dumps(data, indent=2))
-
-
-
-
 def main(script_dir):
     arch = arch_suffix()
     print("Fetch warp program...")
