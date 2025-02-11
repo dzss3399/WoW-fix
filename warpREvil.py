@@ -666,7 +666,7 @@ def export_Xray(t_ips, arch):
 
 
 def export_SingBox2(t_ips, arch):
-    with open("assets/singbox-template.json", "r") as f:
+    with open("assets/hiddify-singbox.json", "r") as f:
         data = json.load(f)
 
 
