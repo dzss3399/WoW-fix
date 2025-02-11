@@ -70,29 +70,6 @@ temp ={
                 "workers": 2,
 }]
 }
-
-temp2 ={"outbounds": [{
-                "type": "wireguard",
-                "tag": "",
-                "name": "",
-                "mtu": 1280,
-                "address": ["172.16.0.2/32", ""],
-                "private_key": "",
-                "peers": [
-                    {
-                        "address": "",
-                        "port": 0,
-                        "public_key": "",
-                        "allowed_ips": ["0.0.0.0/0", "::/0"],
-                        "persistent_keepalive_interval": 30,
-                        "reserved": [],
-                    }
-                ],
-                "detour": "",
-                "workers": 2,
-}]
-}
-
 WoW_v2 = [
     {
         "remarks": "Tel= arshiacomplus - WoW",
@@ -531,7 +508,7 @@ def toSingBox11(tag, clean_ip, detour):
     print("Generating Warp Conf")
 
     data = bind_keys()
-    wg = temp2["outbounds"][0]
+    wg = temp["outbounds"][0]
     wg["private_key"] = data[1]
     wg["peers"][0]["public_key"] = data[3]
     wg["peers"][0]["reserved"] = data[2]
@@ -567,7 +544,7 @@ def toSingBox22(tag, clean_ip, detour):
     print("Generating Warp Conf")
 
     data = bind_keys()
-    wg = temphi["outbounds"][0]
+    wg = temp2hi["outbounds"][0]
     wg["private_key"] = data[1]
     wg["peer_public_key"] = data[3]
     wg["reserved"] = data[2]
