@@ -567,6 +567,7 @@ def export_SingBox(t_ips, arch):
 ########################
     data["outbounds"][0]["outbounds"].extend(["WARP-MAIN", "WARP-WOW"])
     data["outbounds"][1]["outbounds"].extend(["WARP-MAIN", "WARP-WOW"])
+    data["endpoints"]=[]
 
     main_wg = toSingBox1("WARP-MAIN", t_ips[0], "direct",temp)
     if main_wg:
