@@ -574,7 +574,7 @@ def export_SingBox(t_ips, arch):
     else:
         print(f"Failed to generate WARP-MAIN configuration")
 
-    wow_wg = toSingBox1("WARP-MAIN", t_ips[1], "WARP-MAIN",temp)
+    wow_wg = toSingBox1("WARP-WOW", t_ips[1], "WARP-MAIN",temp)
     if wow_wg:
         data["endpoints"].append(wow_wg)
     else:
