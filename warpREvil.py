@@ -6,6 +6,7 @@ import platform, subprocess, os, datetime, base64, json
 from cryptography.hazmat.primitives import serialization
 from cryptography.hazmat.primitives.asymmetric.x25519 import X25519PrivateKey
 import requests
+import copy
  
 
 temphi = {
@@ -564,28 +565,25 @@ def toxray11(clean_ip):
 def export_SingBox(t_ips, arch):
     with open("assets/singbox-template.json", "r") as f:
         data = json.load(f)
-########################
+
     data["outbounds"][0]["outbounds"].extend(["WARP-MAIN", "WARP-WOW"])
     data["outbounds"][1]["outbounds"].extend(["WARP-MAIN", "WARP-WOW"])
-    data["endpoints"]=[]
+    data["endpoints"] = []
 
-    main_wg = toSingBox1("WARP-MAIN", t_ips[0], "direct",temp)
+    # Create a deep copy of temp for each configuration
+    temp_copy1 = copy.deepcopy(temp)
+    main_wg = toSingBox1("WARP-MAIN", t_ips[0], "direct", temp_copy1)
     if main_wg:
         data["endpoints"].append(main_wg)
     else:
         print(f"Failed to generate WARP-MAIN configuration")
 
-    wow_wg = toSingBox1("WARP-WOW", t_ips[1], "WARP-MAIN",temp)
+    temp_copy2 = copy.deepcopy(temp)
+    wow_wg = toSingBox1("WARP-WOW", t_ips[1], "WARP-MAIN", temp_copy2)
     if wow_wg:
         data["endpoints"].append(wow_wg)
     else:
-        print(f"Failed to generate WARP-MAIN configuration")
-#########################
-    # data["outbounds"][1]["outbounds"].extend(["WARP-MAIN", "WARP-WOW"])
-    # main_wg = toSingBox1("WARP-MAIN", t_ips[0], "direct")
-    # data["outbounds"].insert(1, main_wg)
-    # wow_wg = toSingBox11("WARP-WOW", t_ips[1], "WARP-MAIN")
-    # data["outbounds"].insert(2, wow_wg)
+        print(f"Failed to generate WARP-WOW configuration")
 
     with open("sing-box.json", "w") as f:
         f.write(json.dumps(data, indent=2))
