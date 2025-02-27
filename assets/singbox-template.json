@@ -74,7 +74,7 @@
       "type": "selector",
       "tag": "proxy",
       "outbounds": ["auto", "direct"],
-      "default": "🟡Berlin"
+      "default": "WARP-WOW"
     },
     {
       "type": "urltest",
