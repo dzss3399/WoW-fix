@@ -58,11 +58,11 @@
         "172.16.0.2/32",
         "2606:4700:110:846c:e510:bfa1:ea9f:5247/128"
       ],
-      "private_key": "gIGihvNnvS2lDDysq6uX5A7J7ZdnyTO/xYlKJUIWIWs=",
+      "private_key": "IGMUErscvQPGuCrjT5Y1VIGbSKrVjOL8UP3bTR6TgnU=",
       "peers": [
         {
-          "address": "188.114.99.114",
-          "port": 7559,
+          "address": "162.159.195.115",
+          "port": 903,
           "public_key": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=",
           "allowed_ips": [
             "0.0.0.0/0",
@@ -70,9 +70,9 @@
           ],
           "persistent_keepalive_interval": 30,
           "reserved": [
-            73,
-            57,
-            63
+            150,
+            116,
+            181
           ]
         }
       ],
@@ -88,10 +88,10 @@
         "172.16.0.2/32",
         "2606:4700:110:846c:e510:bfa1:ea9f:5247/128"
       ],
-      "private_key": "gAvhbboe1z0iIsAqq28YAEfurCkMFsMMGE7DtxVUl3w=",
+      "private_key": "6GYJsGwyL3CA686mJsTXOXZKPEJp1QyBkYUthksHMFQ=",
       "peers": [
         {
-          "address": "188.114.98.144",
+          "address": "188.114.99.10",
           "port": 4500,
           "public_key": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=",
           "allowed_ips": [
@@ -100,9 +100,9 @@
           ],
           "persistent_keepalive_interval": 30,
           "reserved": [
-            163,
-            6,
-            28
+            170,
+            143,
+            26
           ]
         }
       ],
@@ -146,7 +146,7 @@
         "WARP-MAIN",
         "WARP-WOW"
       ],
-      "default": "\ud83d\udfe1Berlin"
+      "default": "WARP-WOW"
     },
     {
       "type": "urltest",
