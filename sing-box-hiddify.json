@@ -93,18 +93,18 @@
     },
     {
       "type": "wireguard",
-      "server": "188.114.97.71",
-      "server_port": 2506,
+      "server": "188.114.98.67",
+      "server_port": 934,
       "local_address": [
         "172.16.0.2/32",
         "2606:4700:110:846c:e510:bfa1:ea9f:5247/128"
       ],
-      "private_key": "aJZrqQxUhn6F0jGr2ywM9/oPBDMgHlB01gRtvX6SaWE=",
+      "private_key": "UJOzg1cozyLCfKfQRl3iQ0U7v6vFiZKWhr2prhVZSnQ=",
       "peer_public_key": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=",
       "reserved": [
-        247,
-        20,
-        80
+        230,
+        219,
+        158
       ],
       "mtu": 1300,
       "workers": 2,
@@ -117,18 +117,18 @@
     },
     {
       "type": "wireguard",
-      "server": "188.114.97.37",
-      "server_port": 939,
+      "server": "188.114.99.2",
+      "server_port": 1180,
       "local_address": [
         "172.16.0.2/32",
         "2606:4700:110:846c:e510:bfa1:ea9f:5247/128"
       ],
-      "private_key": "CFYXJIQ0Zko4WFeaNu9+sFakPkbs39XDtlrzUquHI0s=",
+      "private_key": "kPmdM74zXi/IU0QjPL2i8sPIbpnGIlQWkTvuXTJDKUo=",
       "peer_public_key": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=",
       "reserved": [
-        67,
-        25,
-        71
+        77,
+        129,
+        59
       ],
       "mtu": 1300,
       "workers": 2,
