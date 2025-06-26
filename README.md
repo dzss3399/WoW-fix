@@ -2,9 +2,9 @@
 
 | | لینک |
 |---|---|
-| 🚀 | ```https://raw.githubusercontent.com/arshiacomplus/WoW-fix/main/subwarp/warp``` |
-| 🔹 | ```https://raw.githubusercontent.com/arshiacomplus/WoW-fix/main/sing-box-hiddify.json``` |
-| ⚡ | ```https://raw.githubusercontent.com/arshiacomplus/WoW-fix/main/warp2.json``` |
+| 🚀 | ```https://raw.githubusercontent.com/mehdi-hexing/WoW-fix/main/subwarp/warp``` |
+| 🔹 | ```https://raw.githubusercontent.com/mehdi-hexing/WoW-fix/main/sing-box-hiddify.json``` |
+| ⚡ | ```https://raw.githubusercontent.com/mehdi-hexing/WoW-fix/main/warp2.json``` |
 
 ---
 
@@ -12,7 +12,7 @@
 
 | | لینک |
 |---|---|
-| 🎯 | ```https://raw.githubusercontent.com/arshiacomplus/WoW-fix/main/sing-box.json``` |
+| 🎯 | ```https://raw.githubusercontent.com/mehdi-hexing/WoW-fix/main/sing-box.json``` |
 
 ---
 
@@ -20,4 +20,4 @@
 
 | | لینک |
 |---|---|
-| 💎 | ```https://raw.githubusercontent.com/arshiacomplus/WoW-fix/main/Xray-WoW.json``` |
+| 💎 | ```https://raw.githubusercontent.com/mehdi-hexing/WoW-fix/main/Xray-WoW.json``` |
