@@ -58,11 +58,11 @@
         "172.16.0.2/32",
         "2606:4700:110:846c:e510:bfa1:ea9f:5247/128"
       ],
-      "private_key": "8A1puyZcSIVd830Z9kf76mouWvTT5L56M5n0RB4ay0Q=",
+      "private_key": "GGB2cuQBTyVS26sZOO6R0WO+8HS23z+/qIRDNg0R11w=",
       "peers": [
         {
-          "address": "188.114.97.129",
-          "port": 7281,
+          "address": "188.114.97.222",
+          "port": 2506,
           "public_key": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=",
           "allowed_ips": [
             "0.0.0.0/0",
@@ -70,9 +70,9 @@
           ],
           "persistent_keepalive_interval": 30,
           "reserved": [
-            169,
-            13,
-            169
+            76,
+            3,
+            87
           ]
         }
       ],
@@ -88,11 +88,11 @@
         "172.16.0.2/32",
         "2606:4700:110:846c:e510:bfa1:ea9f:5247/128"
       ],
-      "private_key": "IObyn5hlNNNGfvLLI4RqYHlVOdLTlxPkyY8rMJ++Mk0=",
+      "private_key": "eN1mDcGrPOCxjE2gcf2glbgI+UdSjduKQkVjY31TSX4=",
       "peers": [
         {
-          "address": "188.114.98.173",
-          "port": 934,
+          "address": "188.114.97.150",
+          "port": 945,
           "public_key": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=",
           "allowed_ips": [
             "0.0.0.0/0",
@@ -100,9 +100,9 @@
           ],
           "persistent_keepalive_interval": 30,
           "reserved": [
-            24,
-            93,
-            73
+            252,
+            58,
+            174
           ]
         }
       ],
